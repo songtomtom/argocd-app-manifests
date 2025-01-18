@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-server
+  template:
+    metadata:
+      labels:
+        app: python-server
+    spec:
+      containers:
+        - name: python-server
+          image: songtomtom/python-server:latest
+          ports:
+            - containerPort: 5001
